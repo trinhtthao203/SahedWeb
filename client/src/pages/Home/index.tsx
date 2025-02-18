@@ -9,7 +9,6 @@ function Home() {
       <Navbar />
       <Slider />
       <Blogs />
-      <p className=" text-yellow-700">HLEWIN</p>
       <Footer />
     </div>
   );

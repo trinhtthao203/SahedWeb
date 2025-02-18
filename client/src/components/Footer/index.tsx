@@ -6,14 +6,16 @@ const Footer = () => {
     <footer className=" bg-gray-800 px-4 md:px-16 lg:px-28">
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <h2 className=" text-lg font-bold mb-4 text-white">About Us</h2>
+          <h2 className=" text-lg font-bold mb-4 text-white pt-10">About Us</h2>
           <p className=" text-gray-300">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus
             sapiente modi quisquam libero assumens!
           </p>
         </div>
         <div>
-          <h2 className=" text-lg font-bold mb-4 text-white">Quick Links</h2>
+          <h2 className=" text-lg font-bold mb-4 text-white pt-10">
+            Quick Links
+          </h2>
           <ul>
             <li>
               <a href="" className="hover:underline text-gray-300">
@@ -38,7 +40,9 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <h2 className=" text-lg font-bold mb-4 text-white">Follow Us</h2>
+          <h2 className=" text-lg font-bold mb-4 text-white pt-10">
+            Follow Us
+          </h2>
           <ul className=" flex space-x-4">
             <li>
               <Facebook className=" text-blue-500" />
