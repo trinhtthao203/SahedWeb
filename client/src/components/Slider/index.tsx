@@ -1,12 +1,28 @@
 import React from "react";
 import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import IMG01 from "/images/Tập huấn Nông nghiệp công nghệ số và thảo luận hỗ trợ cơ sở vật chất theo Dự án SAHED.jpg";
-import IMG02 from "/images/Thảo luận phát triển chương trình đào tạo thuộc Hợp phần 2, Dự án SAHED (KOICA tài trợ).jpg";
-import IMG03 from "/images/Tập huấn nâng cao năng lực cho nhân viên hành chính trong khuôn khổ Dự án SAHED.jpg";
+import IMG01 from "/images/banner/1.jpg";
+import IMG02 from "/images/banner/3. Quý thầy cô đoàn công tác của ĐHQG-HCM, Trường ĐHAG cùng lãnh đạo Trường Nông nghiệp và Khoa học đời sống (CALS) .jpg";
+import IMG03 from "/images/banner/6a.jpg";
+import IMG04 from "/images/banner/12.jpg";
+import IMG05 from "/images/banner/Đoàn tham quan Busan (4).jpg";
+import IMG06 from "/images/banner/Đoàn thực tế chụp ảnh lưu niệm tại SNU.jpg";
+import IMG07 from "/images/banner/GS Choi Soo Jung - Phó Giám đốc Dự án SAHED trao giấy chứng nhận cho các sinh viên tham gia chuyến học tập tại Hàn Quốc (2).jpg";
+import IMG08 from "/images/banner/IMG_1246.jpg";
+import IMG09 from "/images/banner/PGS.TS Võ Văn Thắng - Hiệu trưởng Trường Đại học An Giang tặng quà lưu niệm cho GS Choi Soo Jung - Phó Giám đốc Dự án SAHED.jpg";
 
 const Slider = () => {
-  const images = [IMG01, IMG02, IMG03];
+  const images = [
+    IMG01,
+    IMG02,
+    IMG03,
+    IMG04,
+    IMG05,
+    IMG06,
+    IMG07,
+    IMG08,
+    IMG09,
+  ];
 
   return (
     <div>

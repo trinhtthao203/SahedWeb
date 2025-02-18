@@ -6,10 +6,12 @@ const Footer = () => {
     <footer className=" bg-gray-800 px-4 md:px-16 lg:px-28">
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <h2 className=" text-lg font-bold mb-4 text-white pt-10">About Us</h2>
-          <p className=" text-gray-300">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            sapiente modi quisquam libero assumens!
+          <h2 className=" text-lg font-bold mb-4 text-white pt-10">SAHED</h2>
+          <p className=" text-gray-300 text-justify">
+            Website này là một phần của Dự án Tăng cường giáo dục đại học lĩnh
+            vực nông nghiệp tại Đại học Quốc gia TP.HCM, hợp tác với KOICA,
+            hướng tới phát triển nguồn nhân lực chất lượng cao và ứng dụng công
+            nghệ trong sản xuất nông nghiệp bền vững.
           </p>
         </div>
         <div>

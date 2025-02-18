@@ -1,80 +1,15 @@
 import Slider from "react-slick";
 import Heading from "../Heading";
 import Cards from "../Cards";
-import IMG01 from "/images/Phiên thảo luận phát triển chương trình đào tạo thuộc Hợp phần 2, Dự án SAHED (KOICA tài trợ).jpg";
-import IMG02 from "/images/Tập huấn Nông nghiệp công nghệ số và thảo luận hỗ trợ cơ sở vật chất theo Dự án SAHED.jpg";
-import IMG03 from "/images/Thảo luận phát triển chương trình đào tạo thuộc Hợp phần 2, Dự án SAHED (KOICA tài trợ).jpg";
-import IMG04 from "/images/Tập huấn nâng cao năng lực cho nhân viên hành chính trong khuôn khổ Dự án SAHED.jpg";
+import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-const postData = [
-  {
-    id: 1,
-    title:
-      "TẬP HUẤN NÔNG NGHIỆP CÔNG NGHỆ SỐ VÀ THẢO LUẬN HỖ TRỢ CƠ SỞ VẬT CHẤT THEO DỰ ÁN SAHED",
-    images: IMG01,
-    shortContent: "Lorem ipsum",
-    link: "https://www.agu.edu.vn/vi/chi-tiet-thong-tin/tap-huan-nong-nghiep-cong-nghe-so-va-thao-luan-ho-tro-co-so-vat-chat-theo-du-an-sahed",
-  },
-  {
-    id: 2,
-    title: "HLEWINFIRSTSTAND2025",
-    images: IMG02,
-    shortContent: "Lorem ipsum",
-  },
-  {
-    id: 3,
-    title: "HLEWINLCK2025",
-    images: IMG03,
-    shortContent: "Lorem ipsum",
-    link: "https://www.agu.edu.vn/vi/chi-tiet-thong-tin/tap-huan-nong-nghiep-cong-nghe-so-va-thao-luan-ho-tro-co-so-vat-chat-theo-du-an-sahed",
-  },
-  {
-    id: 4,
-    title: "HLEWINMSI2025",
-    images: IMG04,
-    shortContent: "Lorem ipsum",
-    link: "https://www.agu.edu.vn/vi/chi-tiet-thong-tin/tap-huan-nong-nghiep-cong-nghe-so-va-thao-luan-ho-tro-co-so-vat-chat-theo-du-an-sahed",
-  },
-  {
-    id: 5,
-    title: "HLEWINWORLDS2025",
-    images: IMG01,
-    shortContent: "Lorem ipsum",
-    link: "https://www.agu.edu.vn/vi/chi-tiet-thong-tin/tap-huan-nong-nghiep-cong-nghe-so-va-thao-luan-ho-tro-co-so-vat-chat-theo-du-an-sahed",
-  },
-  {
-    id: 6,
-    title: "HLEWINWORLDS2025",
-    images: IMG02,
-    shortContent: "Lorem ipsum",
-    link: "https://www.agu.edu.vn/vi/chi-tiet-thong-tin/tap-huan-nong-nghiep-cong-nghe-so-va-thao-luan-ho-tro-co-so-vat-chat-theo-du-an-sahed",
-  },
-  {
-    id: 7,
-    title: "HLEWINWORLDS2025",
-    images: IMG03,
-    shortContent: "Lorem ipsum",
-    link: "https://www.agu.edu.vn/vi/chi-tiet-thong-tin/tap-huan-nong-nghiep-cong-nghe-so-va-thao-luan-ho-tro-co-so-vat-chat-theo-du-an-sahed",
-  },
-  {
-    id: 8,
-    title: "HLEWINWORLDS2025",
-    images: IMG04,
-    shortContent: "Lorem ipsum",
-    link: "https://www.agu.edu.vn/vi/chi-tiet-thong-tin/tap-huan-nong-nghiep-cong-nghe-so-va-thao-luan-ho-tro-co-so-vat-chat-theo-du-an-sahed",
-  },
-  {
-    id: 9,
-    title: "HLEWINWORLDS2025",
-    images: IMG01,
-    shortContent: "Lorem ipsum",
-    link: "https://www.agu.edu.vn/vi/chi-tiet-thong-tin/tap-huan-nong-nghiep-cong-nghe-so-va-thao-luan-ho-tro-co-so-vat-chat-theo-du-an-sahed",
-  },
-];
+import { useEffect, useState } from "react";
 
 const Blogs = () => {
+  const [posts, setPosts] = useState<any[]>([]); // Dữ liệu bài viết
+  const [loading, setLoading] = useState<boolean>(true); // Trạng thái loading
+
   const settings = {
     dots: true, // Hiển thị chấm trượt
     infinite: true, // Lặp lại slide
@@ -95,14 +30,39 @@ const Blogs = () => {
     ],
   };
 
+  // Lấy dữ liệu từ API khi component mount
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/posts"); // Đảm bảo URL chính xác
+        setPosts(response.data); // Lưu dữ liệu vào state
+        setLoading(false); // Tắt loading khi nhận được dữ liệu
+        console.log(response);
+      } catch (error) {
+        console.error("Lỗi khi lấy dữ liệu: ", error);
+        setLoading(false);
+      }
+    };
+
+    fetchPosts(); // Gọi hàm lấy dữ liệu
+  }, []); // Chạy một lần khi component mount
+
   return (
     <div className="flex justify-center items-center">
       <div className="container">
-        <Heading title="Tin tức" />
+        <Heading title="Tin tức & Sự kiện" />
         <Slider {...settings}>
-          {postData.map((post) => (
+          {posts.map((post) => (
             <div key={post.id}>
-              <Cards title={post.title} images={post.images} link={post.link} />
+              <Cards
+                title={post.title}
+                image={
+                  post.image
+                    ? `http://localhost:4000/${post.image.replace("\\", "/")}`
+                    : "/path/to/default-image.jpg"
+                }
+                link={post.link}
+              />
             </div>
           ))}
         </Slider>

@@ -1,19 +1,20 @@
 import { Button } from "@mui/material";
 
-const Cards = ({ id, images, title, shortContent, link }: any) => {
+const Cards = ({ id, image, title, shortContent, link }: any) => {
+  console.log(image);
   return (
     <div className="mb-10 px-10">
       <div className="group" key={id}>
         <div className="relative">
           <img
-            src={images}
-            alt=""
+            src={image} // Sử dụng URL đã chỉnh sửa
+            alt={title}
             className="w-full sm:h-[250px] md:h-[300px] lg:h-[350px] object-cover rounded-md"
           />
           {/* Hover button */}
           <div className="hidden group-hover:flex absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 h-full w-full text-center group-hover:backdrop-blur-sm justify-center items-center duration-200">
             <Button variant="contained" color="primary">
-              <a href={link} target="_blank">
+              <a href={link} target="_blank" rel="noopener noreferrer">
                 Đọc thêm
               </a>
             </Button>
