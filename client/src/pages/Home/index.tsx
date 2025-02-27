@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Slider from "../../components/Slider";
@@ -6,11 +8,22 @@ import Partners from "../../components/Partners";
 import About from "../../components/About";
 
 const Home: React.FC = () => {
+  const location = useLocation(); // Lấy URL hiện tại
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   return (
     <div className="bg-gray-200">
       <Navbar />
       <Slider />
-
       <div id="about" className="pt-[10rem]">
         <About />
       </div>

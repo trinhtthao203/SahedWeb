@@ -4,9 +4,9 @@ import CustomButton from "../CustomButton";
 const About = () => {
   return (
     <div className="flex justify-center items-center">
-      <div className=" container">
+      <div className="container">
         <Heading title="SAHED" />
-        <p className=" text-xl text-justify px-10">
+        <p className="text-xl text-justify px-10">
           Dự án nhằm nâng cao chất lượng giáo dục trong lĩnh vực nông nghiệp tại
           Trường Đại học An Giang (ĐHAG), Đại học Quốc gia TP.HCM (ĐHQG-HCM).
           Mục tiêu cụ thể bao gồm phát triển đội ngũ nhân lực trình độ tiến sĩ,
@@ -14,10 +14,11 @@ const About = () => {
           hợp tác giữa nhà trường và doanh nghiệp​.
         </p>
         <div className="flex justify-center mt-4">
-          <CustomButton title="read_more" />
+          <CustomButton title="read_more" navigateTo="/about-detail" />
         </div>
       </div>
     </div>
   );
 };
+
 export default About;

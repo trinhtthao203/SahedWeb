@@ -4,7 +4,6 @@ import {
   Box,
   Toolbar,
   IconButton,
-  Typography,
   Menu,
   Container,
   Avatar,
@@ -18,12 +17,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const pages = [
-  { label: "about", link: "#about" },
-  { label: "news", link: "#blogs" },
-  { label: "partners", link: "#partners" },
-  { label: "contact", link: "#footer" },
+  { label: "about", path: "/#about" },
+  { label: "news", path: "/#blogs" },
+  { label: "partners", path: "/#partners" },
+  { label: "contact", path: "/#footer" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -54,7 +54,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   width: "100%",
 }));
 
-function ResponsiveAppBar() {
+function Navbar() {
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -106,9 +107,11 @@ function ResponsiveAppBar() {
               {pages.map((page) => (
                 <MenuItem
                   key={page.label}
-                  onClick={handleCloseNavMenu}
+                  onClick={() => {
+                    handleCloseNavMenu;
+                    navigate(page.path);
+                  }}
                   component="a"
-                  href={page.link}
                 >
                   {t(`${page.label}`)}
                 </MenuItem>
@@ -122,11 +125,10 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page.label}
-                component="a"
-                href={page.link}
+                onClick={() => navigate(page.path)}
                 sx={{ my: 2, color: "white" }}
               >
-                {t(`${page.label}`)}
+                {t(page.label)}
               </Button>
             ))}
           </Box>
@@ -165,4 +167,5 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
+
+export default Navbar;

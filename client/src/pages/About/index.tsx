@@ -1,16 +1,25 @@
-import { Container, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Heading from "../../components/Heading";
 
-const About: React.FC = () => {
+const About = () => {
+  const [content, setContent] = useState("");
+
+  useEffect(() => {
+    axios.get("http://localhost:4000/about").then((response) => {
+      if (response.data) {
+        setContent(response.data.content);
+      }
+    });
+  }, []);
+
   return (
-    <Container maxWidth="md" sx={{ mt: 5 }}>
-      <Typography variant="h4" fontWeight="bold" gutterBottom>
-        Giới thiệu về SAHED
-      </Typography>
-      <Typography variant="body1">
-        Dự án SAHED nhằm nâng cao chất lượng giáo dục trong lĩnh vực nông nghiệp
-        tại Trường Đại học An Giang (ĐHAG), Đại học Quốc gia TP.HCM (ĐHQG-HCM).
-      </Typography>
-    </Container>
+    <div>
+      <Heading title="about" />
+      <div className="container mx-auto p-4 flex justify-center items-center">
+        <div dangerouslySetInnerHTML={{ __html: content }} />
+      </div>
+    </div>
   );
 };
 
