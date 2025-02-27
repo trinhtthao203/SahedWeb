@@ -15,8 +15,8 @@ const postRouter = require("./routes/Posts.routes");
 app.use("/posts", postRouter);
 
 // Routes
-const imageRouter = require("./routes/Images.routes");
-app.use("/images", imageRouter);
+// const imageRouter = require("./routes/Images.routes");
+// app.use("/images", imageRouter);
 
 db.sequelize.sync().then(() => {
   app.listen(4000, () => {

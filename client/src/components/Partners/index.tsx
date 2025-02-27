@@ -8,8 +8,8 @@ import { Grid } from "@mui/material";
 const Partners = () => {
   return (
     <div className=" flex justify-center items-center">
-      <div className=" container mx-[25rem] ">
-        <Heading title="Đối tác" />
+      <div className=" container mb-[5rem]">
+        <Heading title="partners" />
         <Grid container spacing={5} justifyContent="center" alignItems="center">
           <Grid
             item

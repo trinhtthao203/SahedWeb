@@ -3,21 +3,28 @@ import Footer from "../../components/Footer";
 import Slider from "../../components/Slider";
 import Blogs from "../../components/Blogs";
 import Partners from "../../components/Partners";
+import About from "../../components/About";
 
-function Home() {
+const Home: React.FC = () => {
   return (
-    <div className=" bg-gray-200">
+    <div className="bg-gray-200">
       <Navbar />
       <Slider />
-      <div className=" pt-[10rem]">
-        <Partners />
+
+      <div id="about" className="pt-[10rem]">
+        <About />
       </div>
-      <div className=" pt-[10rem]">
+      <div id="blogs" className="pt-[10rem]">
         <Blogs />
       </div>
-      <Footer />
+      <div id="partners" className="pt-[10rem]">
+        <Partners />
+      </div>
+      <div id="footer">
+        <Footer />
+      </div>
     </div>
   );
-}
+};
 
 export default Home;

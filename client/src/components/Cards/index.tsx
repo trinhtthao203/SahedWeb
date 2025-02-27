@@ -1,7 +1,6 @@
 import { Button } from "@mui/material";
 
 const Cards = ({ id, image, title, shortContent, link }: any) => {
-  console.log(image);
   return (
     <div className="mb-10 px-10">
       <div className="group" key={id}>

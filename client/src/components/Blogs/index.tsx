@@ -37,7 +37,6 @@ const Blogs = () => {
         const response = await axios.get("http://localhost:4000/posts"); // Đảm bảo URL chính xác
         setPosts(response.data); // Lưu dữ liệu vào state
         setLoading(false); // Tắt loading khi nhận được dữ liệu
-        console.log(response);
       } catch (error) {
         console.error("Lỗi khi lấy dữ liệu: ", error);
         setLoading(false);
@@ -48,7 +47,7 @@ const Blogs = () => {
   }, []); // Chạy một lần khi component mount
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center overflow-hidden w-full">
       <div className="container">
         <Heading title="Tin tức & Sự kiện" />
         <Slider {...settings}>
