@@ -49,7 +49,7 @@ const Blogs = () => {
   return (
     <div className="flex justify-center items-center overflow-hidden w-full">
       <div className="container">
-        <Heading title="Tin tức & Sự kiện" />
+        <Heading title="news" />
         <Slider {...settings}>
           {posts.map((post) => (
             <div key={post.id}>

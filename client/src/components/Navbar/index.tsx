@@ -21,7 +21,7 @@ import { useNavigate } from "react-router-dom";
 
 const pages = [
   { label: "about", path: "/#about" },
-  { label: "news", path: "/#blogs" },
+  { label: "news", path: "/#news" },
   { label: "partners", path: "/#partners" },
   { label: "contact", path: "/#footer" },
 ];

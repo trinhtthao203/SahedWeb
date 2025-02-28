@@ -27,16 +27,15 @@ const EditAbout = () => {
   // Cấu hình các module cho React-Quill
   const modules = {
     toolbar: [
-      [{ header: [1, 2, false] }],
+      [{ size: [] }], // Thêm chỉnh kích thước chữ
       ["bold", "italic", "underline", "strike"],
       [{ list: "ordered" }, { list: "bullet" }],
-      ["link", "image"], // Thêm nút chèn ảnh
-      [{ align: [] }], // Thêm nút căn giữa ảnh
+      ["link", "image"], // Chèn ảnh
+      [{ align: [] }], // Canh giữa ảnh
       ["clean"],
     ],
     imageResize: {
-      parchment: Quill.import("parchment"),
-      modules: ["Resize", "DisplaySize"],
+      modules: ["Resize", "DisplaySize", "Toolbar"],
     },
   };
 

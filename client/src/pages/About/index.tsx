@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Heading from "../../components/Heading";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
-const About = () => {
+const AboutPage = () => {
   const [content, setContent] = useState("");
 
   useEffect(() => {
@@ -15,12 +17,16 @@ const About = () => {
 
   return (
     <div>
-      <Heading title="about" />
-      <div className="container mx-auto p-4 flex justify-center items-center">
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+      <Navbar />
+      <div className="container mx-auto p-4 mt-24">
+        <div
+          className="ql-editor"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
       </div>
+      <Footer />
     </div>
   );
 };
 
-export default About;
+export default AboutPage;

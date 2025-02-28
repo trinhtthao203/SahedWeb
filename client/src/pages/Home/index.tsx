@@ -27,7 +27,7 @@ const Home: React.FC = () => {
       <div id="about" className="pt-[10rem]">
         <About />
       </div>
-      <div id="blogs" className="pt-[10rem]">
+      <div id="news" className="pt-[10rem]">
         <Blogs />
       </div>
       <div id="partners" className="pt-[10rem]">

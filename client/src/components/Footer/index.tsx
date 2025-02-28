@@ -1,17 +1,16 @@
 import React from "react";
-import { Facebook, X, Language, Lan } from "@mui/icons-material";
+import { Facebook, X, Language } from "@mui/icons-material";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className=" bg-gray-800 px-4 md:px-16 lg:px-28">
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
           <h2 className=" text-lg font-bold mb-4 text-white pt-10">SAHED</h2>
           <p className=" text-gray-300 text-justify">
-            Website này là một phần của Dự án Tăng cường giáo dục đại học lĩnh
-            vực nông nghiệp tại Đại học Quốc gia TP.HCM, hợp tác với KOICA,
-            hướng tới phát triển nguồn nhân lực chất lượng cao và ứng dụng công
-            nghệ trong sản xuất nông nghiệp bền vững.
+            {t("footer_description")}
           </p>
         </div>
         <div>
@@ -20,23 +19,23 @@ const Footer = () => {
           </h2>
           <ul>
             <li>
-              <a href="" className="hover:underline text-gray-300">
-                Home
+              <a href="/#about" className="hover:underline text-gray-300">
+                {t("about")}
               </a>
             </li>
             <li>
-              <a href="" className="hover:underline text-gray-300">
-                Services
+              <a href="/#news" className="hover:underline text-gray-300">
+                {t("news")}
               </a>
             </li>
             <li>
-              <a href="" className="hover:underline text-gray-300">
-                Contact
+              <a href="/#partners" className="hover:underline text-gray-300">
+                {t("partners")}
               </a>
             </li>
             <li>
-              <a href="" className="hover:underline text-gray-300">
-                About
+              <a href="/#footer" className="hover:underline text-gray-300">
+                {t("contact")}
               </a>
             </li>
           </ul>
