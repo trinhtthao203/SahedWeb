@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 
 const Blogs = () => {
   const [posts, setPosts] = useState<any[]>([]); // Dữ liệu bài viết
-  const [loading, setLoading] = useState<boolean>(true); // Trạng thái loading
 
   const settings = {
     dots: true, // Hiển thị chấm trượt
@@ -34,12 +33,13 @@ const Blogs = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/posts"); // Đảm bảo URL chính xác
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/posts.php`
+        ); // Đảm bảo URL chính xác
+        console.log();
         setPosts(response.data); // Lưu dữ liệu vào state
-        setLoading(false); // Tắt loading khi nhận được dữ liệu
       } catch (error) {
         console.error("Lỗi khi lấy dữ liệu: ", error);
-        setLoading(false);
       }
     };
 
@@ -57,7 +57,10 @@ const Blogs = () => {
                 title={post.title}
                 image={
                   post.image
-                    ? `http://localhost:4000/${post.image.replace("\\", "/")}`
+                    ? `${import.meta.env.VITE_URL}/${post.image.replace(
+                        "\\",
+                        "/"
+                      )}`
                     : "/path/to/default-image.jpg"
                 }
                 link={post.link}

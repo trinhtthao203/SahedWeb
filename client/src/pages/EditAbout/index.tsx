@@ -12,7 +12,7 @@ const EditAbout = () => {
   const [content, setContent] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:4000/about").then((response) => {
+    axios.get(`${import.meta.env.VITE_API_URL}/posts.php`).then((response) => {
       if (response.data) {
         setContent(response.data.content);
       }
@@ -20,7 +20,7 @@ const EditAbout = () => {
   }, []);
 
   const handleSave = async () => {
-    await axios.post("http://localhost:4000/about", { content });
+    await axios.post(`${import.meta.env.VITE_API_URL}/about`, { content });
     alert("Nội dung đã được cập nhật!");
   };
 

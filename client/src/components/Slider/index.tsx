@@ -1,4 +1,3 @@
-import React from "react";
 import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import IMG01 from "/images/banner/1.jpg";

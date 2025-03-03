@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
+    "username": "saheddbuser",
+    "password": "Zi_3jLb3H",
     "database": "sahed_db",
-    "host": "127.0.0.1",
+    "host": "172.16.0.12",
     "dialect": "mysql"
   },
   "test": {

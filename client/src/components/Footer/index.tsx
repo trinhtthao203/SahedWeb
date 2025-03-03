@@ -1,4 +1,3 @@
-import React from "react";
 import { Facebook, X, Language } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 
