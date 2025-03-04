@@ -35,8 +35,7 @@ const Blogs = () => {
       try {
         const response = await axios.get(
           `${import.meta.env.VITE_API_URL}/posts.php`
-        ); // Đảm bảo URL chính xác
-        console.log();
+        );
         setPosts(response.data); // Lưu dữ liệu vào state
       } catch (error) {
         console.error("Lỗi khi lấy dữ liệu: ", error);
@@ -55,14 +54,7 @@ const Blogs = () => {
             <div key={post.id}>
               <Cards
                 title={post.title}
-                image={
-                  post.image
-                    ? `${import.meta.env.VITE_URL}/${post.image.replace(
-                        "\\",
-                        "/"
-                      )}`
-                    : "/path/to/default-image.jpg"
-                }
+                image={post.image ? post.image : "/path/to/default-image.jpg"}
                 link={post.link}
               />
             </div>

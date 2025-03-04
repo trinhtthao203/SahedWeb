@@ -7,7 +7,7 @@ const AboutPage = () => {
   const [content, setContent] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:4000/about").then((response) => {
+    axios.get(`${import.meta.env.VITE_API_URL}/about.php`).then((response) => {
       if (response.data) {
         setContent(response.data.content);
       }
