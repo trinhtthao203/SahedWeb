@@ -6,16 +6,16 @@ import {
   IconButton,
   Menu,
   Container,
-  Avatar,
+  // Avatar,
   Button,
-  Tooltip,
+  // Tooltip,
   MenuItem,
-  InputBase,
+  // InputBase,
   Select,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
-import { styled, alpha } from "@mui/material/styles";
+// import SearchIcon from "@mui/icons-material/Search";
+// import { styled, alpha } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
@@ -27,32 +27,32 @@ const pages = [
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: theme.spacing(2),
-  width: "auto",
-}));
+// const Search = styled("div")(({ theme }) => ({
+//   position: "relative",
+//   borderRadius: theme.shape.borderRadius,
+//   backgroundColor: alpha(theme.palette.common.white, 0.15),
+//   "&:hover": {
+//     backgroundColor: alpha(theme.palette.common.white, 0.25),
+//   },
+//   marginLeft: theme.spacing(2),
+//   width: "auto",
+// }));
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
+// const SearchIconWrapper = styled("div")(({ theme }) => ({
+//   padding: theme.spacing(0, 2),
+//   height: "100%",
+//   position: "absolute",
+//   pointerEvents: "none",
+//   display: "flex",
+//   alignItems: "center",
+//   justifyContent: "center",
+// }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-  width: "100%",
-}));
+// const StyledInputBase = styled(InputBase)(({ theme }) => ({
+//   color: "inherit",
+//   paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+//   width: "100%",
+// }));
 
 function Navbar() {
   const navigate = useNavigate();
@@ -72,9 +72,9 @@ function Navbar() {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  // const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  //   setAnchorElUser(event.currentTarget);
+  // };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
@@ -132,12 +132,12 @@ function Navbar() {
               </Button>
             ))}
           </Box>
-          <Search>
+          {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase placeholder={t("search")} />
-          </Search>
+          </Search> */}
           <Select
             value={language}
             onChange={(e) => changeLanguage(e.target.value)}
@@ -146,11 +146,11 @@ function Navbar() {
             <MenuItem value="en">EN</MenuItem>
             <MenuItem value="vi">VN</MenuItem>
           </Select>
-          <Tooltip title="Open settings">
+          {/* <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, ml: 2 }}>
               <Avatar alt="User Avatar" src="/static/images/avatar/2.jpg" />
             </IconButton>
-          </Tooltip>
+          </Tooltip> */}
           <Menu
             anchorEl={anchorElUser}
             open={Boolean(anchorElUser)}

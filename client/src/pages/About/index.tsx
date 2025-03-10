@@ -4,15 +4,23 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 const AboutPage = () => {
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState(() => {
+    return localStorage.getItem("aboutContent") || ""; // Lấy dữ liệu từ LocalStorage nếu có
+  });
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/about.php`).then((response) => {
-      if (response.data) {
-        setContent(response.data.content);
-      }
-    });
-  }, []);
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/about.php`)
+      .then((response) => {
+        if (response.data) {
+          setContent(response.data.content);
+          localStorage.setItem("aboutContent", response.data.content); // Lưu vào LocalStorage
+        }
+      })
+      .catch((error) => {
+        console.error("Lỗi khi lấy dữ liệu About:", error);
+      });
+  }, []); // Chạy một lần khi component mount
 
   return (
     <div>

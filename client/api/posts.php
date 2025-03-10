@@ -1,6 +1,7 @@
 <?php
 require_once "database.php";
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 // Kiểm tra method HTTP
 $method = $_SERVER["REQUEST_METHOD"];
 
@@ -10,7 +11,7 @@ if ($method === "GET") {
     $posts = [];
 
     while ($row = $result->fetch_assoc()) {
-        $row["image"] = "http://sahed.agu.edu.vn/" . str_replace("\\", "/", $row["image"]); // Chuyển đường dẫn ảnh
+        $row["image"] = "https://sahed.agu.edu.vn/" . str_replace("\\", "/", $row["image"]); // Chuyển đường dẫn ảnh
         $posts[] = $row;
     }
 
