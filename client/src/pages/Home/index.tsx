@@ -5,7 +5,6 @@ import Footer from "../../components/Footer";
 import Slider from "../../components/Slider";
 import Blogs from "../../components/Blogs";
 import Partners from "../../components/Partners";
-import About from "../../components/About";
 import LoadingScreen from "../Loading";
 
 const Home: React.FC = () => {
@@ -39,9 +38,9 @@ const Home: React.FC = () => {
         <div className="bg-gray-200">
           <Navbar />
           <Slider />
-          <div id="about" className="pt-[10rem]">
+          {/* <div id="about" className="pt-[10rem]">
             <About />
-          </div>
+          </div> */}
           <div id="news" className="pt-[10rem]">
             <Blogs />
           </div>

@@ -4,13 +4,15 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 const AboutPage = () => {
-  const [content, setContent] = useState(() => {
-    return localStorage.getItem("aboutContent") || ""; // Lấy dữ liệu từ LocalStorage nếu có
+  const [content, setContent] = useState("");
+  const [language, setLanguage] = useState(() => {
+    return localStorage.getItem("language") || "vi"; // Lấy ngôn ngữ từ LocalStorage, mặc định là "vi"
   });
 
+  // Lấy dữ liệu khi ngôn ngữ thay đổi
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/about.php`)
+      .get(`${import.meta.env.VITE_API_URL}/about.php?lang=${language}`)
       .then((response) => {
         if (response.data) {
           setContent(response.data.content);
@@ -20,7 +22,20 @@ const AboutPage = () => {
       .catch((error) => {
         console.error("Lỗi khi lấy dữ liệu About:", error);
       });
-  }, []); // Chạy một lần khi component mount
+  }, [language]); // Gọi API mỗi khi ngôn ngữ thay đổi
+
+  // Nghe sự thay đổi ngôn ngữ từ LocalStorage (trường hợp ngôn ngữ đổi từ Navbar)
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const newLang = localStorage.getItem("language") || "vi";
+      setLanguage(newLang);
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
 
   return (
     <div>

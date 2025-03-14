@@ -15,7 +15,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 const pages = [
-  { label: "about", path: "/#about" },
+  { label: "about", path: "/about-detail" },
   { label: "manager", path: "/#manager" },
   {
     label: "module",
@@ -60,6 +60,11 @@ function Navbar() {
     setAnchorElSubMenu(event.currentTarget);
   };
 
+  const handleChangeLanguage = (lang: string) => {
+    localStorage.setItem("language", lang);
+    window.dispatchEvent(new Event("storage")); // Báo hiệu các trang khác cập nhật
+  };
+
   return (
     <AppBar position="fixed">
       <Container maxWidth="xl">
@@ -77,7 +82,7 @@ function Navbar() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
             >
-              {pages.map((page, index) => (
+              {pages.map((page) => (
                 <div key={page.label}>
                   {page.submenu ? (
                     <>
@@ -149,7 +154,10 @@ function Navbar() {
           </Box>
           <Select
             value={language}
-            onChange={(e) => i18n.changeLanguage(e.target.value)}
+            onChange={(e) => {
+              i18n.changeLanguage(e.target.value);
+              handleChangeLanguage(e.target.value);
+            }}
             sx={{ color: "white", ml: 2 }}
           >
             <MenuItem value="en">EN</MenuItem>

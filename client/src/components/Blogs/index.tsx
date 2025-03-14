@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
-
-import JoditEditor from "jodit-react";
 import Heading from "../Heading";
 import { useTranslation } from "react-i18next";
 import Cards from "../Cards";
