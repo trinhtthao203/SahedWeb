@@ -1,6 +1,9 @@
 import { Button } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const Cards = ({ id, image, title, shortContent, link }: any) => {
+  const { t } = useTranslation();
+
   return (
     <div className="mb-10 px-10">
       <div className="group" key={id}>
@@ -14,7 +17,7 @@ const Cards = ({ id, image, title, shortContent, link }: any) => {
           <div className="hidden group-hover:flex absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 h-full w-full text-center group-hover:backdrop-blur-sm justify-center items-center duration-200">
             <Button variant="contained" color="primary">
               <a href={link} target="_blank" rel="noopener noreferrer">
-                Đọc thêm
+                {t("read_more")}
               </a>
             </Button>
           </div>

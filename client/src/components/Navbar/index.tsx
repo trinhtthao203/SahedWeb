@@ -6,53 +6,32 @@ import {
   IconButton,
   Menu,
   Container,
-  // Avatar,
   Button,
-  // Tooltip,
   MenuItem,
-  // InputBase,
   Select,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-// import SearchIcon from "@mui/icons-material/Search";
-// import { styled, alpha } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 const pages = [
   { label: "about", path: "/#about" },
+  { label: "manager", path: "/#manager" },
+  {
+    label: "module",
+    path: "/#module",
+    submenu: [
+      { label: "module_one", path: "/module/module_one" },
+      { label: "module_two", path: "/module/module_two" },
+      { label: "module_three", path: "/module/module_three" },
+      { label: "module_four", path: "/module/module_four" },
+    ],
+  },
   { label: "news", path: "/#news" },
-  { label: "partners", path: "/#partners" },
+  { label: "document", path: "/document" },
   { label: "contact", path: "/#footer" },
+  { label: "partners", path: "/#partners" },
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
-// const Search = styled("div")(({ theme }) => ({
-//   position: "relative",
-//   borderRadius: theme.shape.borderRadius,
-//   backgroundColor: alpha(theme.palette.common.white, 0.15),
-//   "&:hover": {
-//     backgroundColor: alpha(theme.palette.common.white, 0.25),
-//   },
-//   marginLeft: theme.spacing(2),
-//   width: "auto",
-// }));
-
-// const SearchIconWrapper = styled("div")(({ theme }) => ({
-//   padding: theme.spacing(0, 2),
-//   height: "100%",
-//   position: "absolute",
-//   pointerEvents: "none",
-//   display: "flex",
-//   alignItems: "center",
-//   justifyContent: "center",
-// }));
-
-// const StyledInputBase = styled(InputBase)(({ theme }) => ({
-//   color: "inherit",
-//   paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-//   width: "100%",
-// }));
 
 function Navbar() {
   const navigate = useNavigate();
@@ -60,9 +39,8 @@ function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
+  const [anchorElSubMenu, setAnchorElSubMenu] =
+    React.useState<null | HTMLElement>(null);
   const [language, setLanguage] = React.useState(i18n.language);
 
   React.useEffect(() => {
@@ -72,18 +50,14 @@ function Navbar() {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  // const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-  //   setAnchorElUser(event.currentTarget);
-  // };
+
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+    setAnchorElSubMenu(null);
   };
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+  const handleOpenSubMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElSubMenu(event.currentTarget);
   };
 
   return (
@@ -102,19 +76,35 @@ function Navbar() {
               anchorEl={anchorElNav}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
             >
-              {pages.map((page) => (
-                <MenuItem
-                  key={page.label}
-                  onClick={() => {
-                    handleCloseNavMenu;
-                    navigate(page.path);
-                  }}
-                  component="a"
-                >
-                  {t(`${page.label}`)}
-                </MenuItem>
+              {pages.map((page, index) => (
+                <div key={page.label}>
+                  {page.submenu ? (
+                    <>
+                      <MenuItem onClick={handleOpenSubMenu}>
+                        {t(page.label)}
+                      </MenuItem>
+                      <Menu
+                        anchorEl={anchorElSubMenu}
+                        open={Boolean(anchorElSubMenu)}
+                        onClose={handleCloseNavMenu}
+                      >
+                        {page.submenu.map((sub) => (
+                          <MenuItem
+                            key={sub.label}
+                            onClick={() => navigate(sub.path)}
+                          >
+                            {t(sub.label)}
+                          </MenuItem>
+                        ))}
+                      </Menu>
+                    </>
+                  ) : (
+                    <MenuItem onClick={() => navigate(page.path)}>
+                      {t(page.label)}
+                    </MenuItem>
+                  )}
+                </div>
               ))}
             </Menu>
           </Box>
@@ -122,46 +112,49 @@ function Navbar() {
             SAHED
           </p>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page.label}
-                onClick={() => navigate(page.path)}
-                sx={{ my: 2, color: "white" }}
-              >
-                {t(page.label)}
-              </Button>
-            ))}
+            {pages.map((page) =>
+              page.submenu ? (
+                <div key={page.label}>
+                  <Button
+                    onClick={handleOpenSubMenu}
+                    sx={{ my: 2, color: "white" }}
+                  >
+                    {t(page.label)}
+                  </Button>
+                  <Menu
+                    anchorEl={anchorElSubMenu}
+                    open={Boolean(anchorElSubMenu)}
+                    onClose={handleCloseNavMenu}
+                  >
+                    {page.submenu.map((sub) => (
+                      <MenuItem
+                        key={sub.label}
+                        onClick={() => navigate(sub.path)}
+                      >
+                        {t(sub.label)}
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                </div>
+              ) : (
+                <Button
+                  key={page.label}
+                  onClick={() => navigate(page.path)}
+                  sx={{ my: 2, color: "white" }}
+                >
+                  {t(page.label)}
+                </Button>
+              )
+            )}
           </Box>
-          {/* <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase placeholder={t("search")} />
-          </Search> */}
           <Select
             value={language}
-            onChange={(e) => changeLanguage(e.target.value)}
+            onChange={(e) => i18n.changeLanguage(e.target.value)}
             sx={{ color: "white", ml: 2 }}
           >
             <MenuItem value="en">EN</MenuItem>
             <MenuItem value="vi">VN</MenuItem>
           </Select>
-          {/* <Tooltip title="Open settings">
-            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, ml: 2 }}>
-              <Avatar alt="User Avatar" src="/static/images/avatar/2.jpg" />
-            </IconButton>
-          </Tooltip> */}
-          <Menu
-            anchorEl={anchorElUser}
-            open={Boolean(anchorElUser)}
-            onClose={handleCloseUserMenu}
-          >
-            {settings.map((setting) => (
-              <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                {setting}
-              </MenuItem>
-            ))}
-          </Menu>
         </Toolbar>
       </Container>
     </AppBar>
