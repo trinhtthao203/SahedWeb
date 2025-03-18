@@ -15,8 +15,8 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 const pages = [
-  { label: "about", path: "/about-detail" },
-  { label: "manager", path: "/#manager" },
+  { label: "about", path: "/introduction-detail" },
+  { label: "manager", path: "/management-board" },
   {
     label: "module",
     path: "/#module",
@@ -28,7 +28,6 @@ const pages = [
     ],
   },
   { label: "news", path: "/#news" },
-  { label: "document", path: "/document" },
   { label: "contact", path: "/#footer" },
   { label: "partners", path: "/#partners" },
 ];
@@ -66,7 +65,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="relative">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -113,7 +112,10 @@ function Navbar() {
               ))}
             </Menu>
           </Box>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl font-medium text-white p-[1rem]">
+          <p
+            className="text-sm sm:text-base md:text-lg lg:text-xl font-medium text-white p-[1rem]"
+            onClick={() => navigate("/")}
+          >
             SAHED
           </p>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>

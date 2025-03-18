@@ -27,9 +27,6 @@ const Slider = () => {
 
   return (
     <div>
-      <div>
-        <p>SAHED</p>
-      </div>
       <Fade autoplay>
         {images.map((img, index) => (
           <div

@@ -6,18 +6,16 @@ import ManagementPage from "./pages/Management";
 import "./App.css";
 import "./i18n";
 import ModulePage from "./pages/Module";
-import DocumentPage from "./pages/Document";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about-detail" element={<About />} />
-        <Route path="/edit-about" element={<EditAbout />} />
-        <Route path="/management" element={<ManagementPage />} />
+        <Route path="/introduction-detail" element={<About />} />
+        <Route path="/edit-introduction" element={<EditAbout />} />
+        <Route path="/management-board" element={<ManagementPage />} />
         <Route path="/module/:id" element={<ModulePage />} />
-        <Route path="/document" element={<DocumentPage />} />
       </Routes>
     </Router>
   );

@@ -40,7 +40,7 @@ const AboutPage = () => {
   return (
     <div>
       <Navbar />
-      <div className="container mx-auto p-4 mt-24">
+      <div className="container mx-auto p-4 mt-9">
         <div
           className="ql-editor"
           dangerouslySetInnerHTML={{ __html: content }}
