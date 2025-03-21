@@ -20,11 +20,17 @@ const Partners = () => {
             display="flex"
             justifyContent="center"
           >
-            <img
-              src={KOICA}
-              alt="KOICA"
-              className="w-full h-auto max-w-[200px]"
-            />
+            <a
+              href="https://www.koica.go.kr/sites/koica_en/index.do"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={KOICA}
+                alt="KOICA"
+                className="w-full h-auto max-w-[200px] cursor-pointer"
+              />
+            </a>
           </Grid>
           <Grid
             item
@@ -35,7 +41,17 @@ const Partners = () => {
             display="flex"
             justifyContent="center"
           >
-            <img src={SNU} alt="SNU" className="w-full h-auto max-w-[140px]" />
+            <a
+              href="https://en.snu.ac.kr/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={SNU}
+                alt="SNU"
+                className="w-full h-auto max-w-[140px]"
+              />
+            </a>
           </Grid>
           <Grid
             item
@@ -46,7 +62,17 @@ const Partners = () => {
             display="flex"
             justifyContent="center"
           >
-            <img src={VNU} alt="VNU" className="w-full h-auto max-w-[200px]" />
+            <a
+              href="https://vnuhcm.edu.vn/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={VNU}
+                alt="VNU"
+                className="w-full h-auto max-w-[200px]"
+              />
+            </a>
           </Grid>
           <Grid
             item
@@ -57,7 +83,17 @@ const Partners = () => {
             display="flex"
             justifyContent="center"
           >
-            <img src={AGU} alt="AGU" className="w-full h-auto max-w-[140px]" />
+            <a
+              href="https://www.agu.edu.vn/vi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={AGU}
+                alt="AGU"
+                className="w-full h-auto max-w-[200px]"
+              />
+            </a>
           </Grid>
         </Grid>
       </div>

@@ -14,27 +14,27 @@ const Footer = () => {
         </div>
         <div>
           <h2 className=" text-lg font-bold mb-4 text-white pt-10">
-            Quick Links
+            {t("contact")}
           </h2>
           <ul>
             <li>
               <a href="/#about" className="hover:underline text-gray-300">
-                {t("about")}
+                {t("address")}
               </a>
             </li>
             <li>
               <a href="/#news" className="hover:underline text-gray-300">
-                {t("news")}
+                {t("phone")}
               </a>
             </li>
             <li>
               <a href="/#partners" className="hover:underline text-gray-300">
-                {t("partners")}
+                {t("mail")}
               </a>
             </li>
             <li>
               <a href="/#footer" className="hover:underline text-gray-300">
-                {t("contact")}
+                {t("fax")}
               </a>
             </li>
           </ul>
@@ -57,7 +57,7 @@ const Footer = () => {
         </div>
       </div>
       <div className=" border-t border-gray-600 mt-6 pt-6 p-4 text-gray-300 text-center">
-        <p>© 2025 An Giang University</p>
+        <p>{t("copyright")}</p>
       </div>
     </footer>
   );

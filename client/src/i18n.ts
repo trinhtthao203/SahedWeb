@@ -24,7 +24,13 @@ i18n.use(initReactI18next).init({
         welcome: "Welcome to SAHED Project",
         read_more: "Read More",
         search:"Search",
-        footer_description:"The website is part of the Higher Education Enhancement Project in Agriculture at VNU-HCM, in collaboration with KOICA, aiming to develop high-quality human resources and promote technology application in sustainable agricultural production."
+        managerment_board_image_description:"Assoc. Prof. Dr. Võ Văn Thắng – President of An Giang University and Prof. Ryu Hong-lim – President of Seoul National University.",
+        footer_description:"The website is part of the Higher Education Enhancement Project in Agriculture at VNU-HCM, in collaboration with KOICA, aiming to develop high-quality human resources and promote technology application in sustainable agricultural production.",
+        address:"Address: No 18, Ung Van Khiem street, My Xuyen ward, Long Xuyen city, An Giang province",
+        phone:"Phone: +84 296 6256565 ext 1900",
+        mail:"Email: webmaster@agu.edu.vn",
+        fax:"Fax: +84 296 3842560",
+        copyright:"© Copyright 2025. An Giang University. | Developed by the Library of An Giang University."
       },
     },
     vi: {
@@ -48,8 +54,13 @@ i18n.use(initReactI18next).init({
         welcome: "Chào mừng đến với dự án SAHED",
         read_more: "Đọc thêm",
         search:"Tìm kiếm",
-        footer_description:"Website này là một phần của Dự án Tăng cường giáo dục đại học lĩnh vực nông nghiệp tại Đại học Quốc gia TP.HCM, hợp tác với KOICA, hướng tới phát triển nguồn nhân lực chất lượng cao và ứng dụng công nghệ trong sản xuất nông nghiệp bền vững"
-
+        managerment_board_image_description:"PGS.TS Võ Văn Thắng – Hiệu trưởng Trường Đại học An Giang và GS Ryu Hong-lim - Hiệu trưởng Đại học Quốc gia Seoul",
+        footer_description:"Website này là một phần của Dự án Tăng cường giáo dục đại học lĩnh vực nông nghiệp tại Đại học Quốc gia TP.HCM, hợp tác với KOICA, hướng tới phát triển nguồn nhân lực chất lượng cao và ứng dụng công nghệ trong sản xuất nông nghiệp bền vững",
+        address:"Địa chỉ: số 18, đường Ung Văn Khiêm, phường Mỹ Xuyên, thành phố Long Xuyên, tỉnh An Giang",
+        phone:"Điện thoại: +84 296 6256565 ext 1900",
+        mail:"Email: webmaster@agu.edu.vn",
+        fax:"Fax: +84 296 3842560",
+        copyright:"© Copyright 2025. Trường Đại học An Giang. | Phát triển bởi Thư viện trường Đại học An Giang"
       },
     },
   },

@@ -15,16 +15,16 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 const pages = [
-  { label: "about", path: "/introduction-detail" },
+  { label: "about", path: "/docs/introduction" },
   { label: "manager", path: "/management-board" },
   {
     label: "module",
     path: "/#module",
     submenu: [
-      { label: "module_one", path: "/module/module_one" },
-      { label: "module_two", path: "/module/module_two" },
-      { label: "module_three", path: "/module/module_three" },
-      { label: "module_four", path: "/module/module_four" },
+      { label: "module_one", path: "/docs/components-one" },
+      { label: "module_two", path: "/docs/components-two" },
+      { label: "module_three", path: "/docs/components-three" },
+      { label: "module_four", path: "/docs/components-four" },
     ],
   },
   { label: "news", path: "/#news" },

@@ -14,7 +14,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { useTranslation } from "react-i18next";
 import Heading from "../../components/Heading";
-
+import ImageModal from "../../components/ImageModal";
 interface ManagementBoardItem {
   id: number;
   name: string;
@@ -79,9 +79,18 @@ const ManagementBoard: React.FC = () => {
     <div>
       <Navbar />
       <Heading title={t(`${"manager_title_page"}`)} />
-      <p className="flex justify-center text-xl">
+      <div className=" md:w-1/2 px-10 mx-auto">
+        <ImageModal
+          imageUrl={"https://sahed.agu.edu.vn/uploads/managermentboard.jpg"}
+        />
+      </div>
+      <p className="flex justify-center text-xl italic p-1">
+        {t(`${"managerment_board_image_description"}`)}
+      </p>
+      <p className="flex justify-center text-xl p-10">
         {t(`${"manager_title_description"}`)}
       </p>
+
       <div className=" container mx-auto p-4 flex justify-center">
         <TableContainer component={Paper} sx={{ p: 2 }}>
           {Object.entries(groupedData).map(([group, members]) => (
@@ -117,6 +126,7 @@ const ManagementBoard: React.FC = () => {
           ))}
         </TableContainer>
       </div>
+
       <Footer />
     </div>
   );

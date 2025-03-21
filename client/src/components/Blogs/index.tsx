@@ -41,7 +41,6 @@ const Blogs = () => {
         const response = await axios.get(
           `${import.meta.env.VITE_API_URL}/posts.php?lang=${lang}`
         );
-        console.log(response);
         if (Array.isArray(response.data)) {
           setPosts(response.data);
         } else {

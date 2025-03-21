@@ -6,7 +6,8 @@ import ManagementPage from "./pages/Management";
 import "./App.css";
 import "./i18n";
 import ModulePage from "./pages/Module";
-
+import EditDocs from "./pages/EditDocs";
+import DocsPage from "./pages/Docs";
 function App() {
   return (
     <Router>
@@ -16,6 +17,8 @@ function App() {
         <Route path="/edit-introduction" element={<EditAbout />} />
         <Route path="/management-board" element={<ManagementPage />} />
         <Route path="/module/:id" element={<ModulePage />} />
+        <Route path="/docs/:type" element={<DocsPage />} />
+        <Route path="/edit-docs" element={<EditDocs />} />
       </Routes>
     </Router>
   );
