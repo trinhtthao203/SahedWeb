@@ -25,9 +25,11 @@ const pages = [
       { label: "module_two", path: "/docs/components-two" },
       { label: "module_three", path: "/docs/components-three" },
       { label: "module_four", path: "/docs/components-four" },
+      // { label: "time_line", path: "/time-line" },
     ],
   },
   { label: "news", path: "/#news" },
+  { label: "gallery", path: "/gallery" },
   { label: "contact", path: "/#footer" },
   { label: "partners", path: "/#partners" },
 ];

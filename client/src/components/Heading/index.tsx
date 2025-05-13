@@ -8,7 +8,6 @@ const Heading = ({ title, subtitle }: any) => {
         {t(`${title}`)}
       </h1>
       <p className=" text-xs text-gray-400">
-        {" "}
         {subtitle ? t(`${subtitle}`) : subtitle}
       </p>
     </div>

@@ -9,8 +9,11 @@ import ModulePage from "./pages/Module";
 import EditDocs from "./pages/EditDocs";
 import DocsPage from "./pages/Docs";
 import Login from "./pages/Login";
+import Timeline from "./pages/Timeline";
 import AdminPage from "./pages/Admin";
 import Register from "./pages/Register";
+import Gallery from "./pages/Gallery";
+
 function App() {
   return (
     <Router>
@@ -21,10 +24,12 @@ function App() {
         <Route path="/management-board" element={<ManagementPage />} />
         <Route path="/module/:id" element={<ModulePage />} />
         <Route path="/docs/:type" element={<DocsPage />} />
+        <Route path="/time-line" element={<Timeline />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/edit-docs" element={<EditDocs />} />
         <Route path="/admin/login" element={<Login />} />
-        <Route path="/admin" element={<AdminPage />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/admin/register" element={<Register />} />
+        <Route path="/admin/home" element={<AdminPage />} />
       </Routes>
     </Router>
   );

@@ -40,7 +40,6 @@ const Footer = () => {
             </li>
           </ul>
         </Grid>
-
         {/* Facebook Follow - Full width trên mobile, chia 4 cột trên màn lớn */}
         <Grid item xs={12} md={4} className="flex justify-center">
           <FacebookFollow />

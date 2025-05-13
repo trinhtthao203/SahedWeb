@@ -50,9 +50,9 @@ const AdminLogin = () => {
         {error && <p className="text-red-500 text-center">{error}</p>}
         <form onSubmit={handleLogin}>
           <div className="mb-4">
-            <label className="block text-sm font-medium mb-1">Email</label>
+            <label className="block text-sm font-medium mb-1">Username</label>
             <input
-              type="email"
+              type="text"
               className="w-full p-2 border rounded-md"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
