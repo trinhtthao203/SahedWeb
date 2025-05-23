@@ -58,8 +58,8 @@ const GalleryPage = () => {
     <div>
       <Navbar />
       <Heading title="gallery" />
-      <ImageList title="Gallery - Component (Order 1)" data={imagesOrder1} />
-      <ImageList title="Gallery - Component (Order 2)" data={imagesOrder2} />
+      <ImageList title="module_one" data={imagesOrder1} />
+      <ImageList title="module_two" data={imagesOrder2} />
       <Footer />
     </div>
   );

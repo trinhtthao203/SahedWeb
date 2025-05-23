@@ -1,82 +1,51 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button, TextField, Card, CardContent, Typography } from "@mui/material";
+import axios from "axios";
 
-const AdminLogin = () => {
-  const [email, setEmail] = useState("");
+export default function Login() {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
-
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/users.php`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ action: "login", email, password }),
-        }
-      );
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/register.php`, {
+        action: "login",
+        username,
+        password,
+      });
 
-      const data = await response.json();
-      console.log(data);
+      console.log("Phản hồi từ backend:", res.data); // ✅ Thêm dòng này để kiểm tra
 
-      if (data.error) {
-        throw new Error(data.error);
-      }
-
-      // Lưu thông tin vào localStorage
-      localStorage.setItem("user", JSON.stringify(data.user));
-
-      // Kiểm tra quyền Admin trước khi chuyển trang
-      if (data.isAdmin) {
-        console.log(1);
-        navigate("/admin");
+      if (res.data.user) {
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        navigate("/admin/dashboard"); // ✅ Điều hướng sau khi login
       } else {
-        setError("Bạn không có quyền truy cập!");
+        setError("Sai tài khoản hoặc mật khẩu.");
       }
     } catch (err: any) {
-      setError(err.message);
+      setError(err?.response?.data?.error || "Đã xảy ra lỗi.");
     }
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h2 className="text-2xl font-semibold text-center mb-4">Admin Login</h2>
-        {error && <p className="text-red-500 text-center">{error}</p>}
-        <form onSubmit={handleLogin}>
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-1">Username</label>
-            <input
-              type="text"
-              className="w-full p-2 border rounded-md"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-1">Password</label>
-            <input
-              type="password"
-              className="w-full p-2 border rounded-md"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white p-2 rounded-md"
-          >
-            Login
-          </button>
-        </form>
-      </div>
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <Card className="w-[350px]">
+        <CardContent>
+          <Typography variant="h5" className="mb-4 text-center">
+            Đăng nhập
+          </Typography>
+          {error && <p className="text-red-500 mb-2">{error}</p>}
+          <form onSubmit={handleLogin} className="flex flex-col gap-4">
+            <TextField label="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+            <TextField type="password" label="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <Button type="submit" variant="contained">Đăng nhập</Button>
+          </form>
+        </CardContent>
+      </Card>
     </div>
   );
-};
-
-export default AdminLogin;
+}
